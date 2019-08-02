@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="failsafe">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Failsafe Home</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script src="failsafe.js"></script>
+</head>
+<body >
+<h1>Failsafe - Manager Home Page</h1>
+<br>
+<br>
+<form name="authenticateUser">
+	<div ng-controller="AuthenticateUserController">
+		<table>
+			<tr><td><b>Authenticate User</b></td></tr>
+			<tr><td>ID:</td><td><input type="text" name="id" name="id" ng-model="user.id"/></td></tr>
+			<tr><td><input type="submit" ng-click="authenticateUser(user)" value="Authenticate User"/></td></tr>
+		</table>
+	</div>
+</form>
+<br>
+<br>
+<form name="addUser">
+	<div ng-controller="AddUserController">
+		<table>
+			<tr><td><b>Add New User</b></td></tr>
+			<tr><td>ID:</td><td><input type="text" name="id" name="id" ng-model="user.id"/></td></tr>
+			<tr><td>First Name:</td><td><input type="text" name="firstName" name="firstName" ng-model="user.firstName"/></td></tr>
+			<tr><td>Last Name:</td><td><input type="text" name="lastName" name="lastName" ng-model="user.lastName"/></td></tr>
+			<tr><td><input type="submit" ng-click="addUser(user)" value="Add User" onClick="window.location.reload()"/></td></tr>
+		</table>
+	</div>
+</form>
+<br>
+<br>
+<form name="removeUser">
+	<div ng-controller="RemoveUserController">
+		<table>
+			<tr><td><b>Remove User</b></td></tr>
+			<tr><td>ID:</td><td><input type="text" id="input-search" name="removeuser" ng-model="user.id"/></td></tr>
+			<tr><td><input type="submit" ng-click="removeUser(user)" value="Remove User" onClick="window.location.reload()"/></td></tr>
+		</table>
+	</div>
+</form>
+<br>
+<br>
+<form name="showUser">
+	<div ng-controller="ShowUserController">
+		<table>
+			<tr><td><b>Current Users</b></td></tr>
+			<tr><td><b>ID</b></td><td><b>First Name</b></td><td><b>Last Name</b></td></tr>
+			<tr ng-repeat="user in users">
+				<td>{{user.id}}</td><td>{{user.firstName}}</td><td>{{user.lastName}}</td>
+			</tr>
+		</table>
+	</div>
+</form>
+</body>
+</html>

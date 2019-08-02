@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Failsafe Manager</title>
+</head>
+<script language="javascript">
+
+		function callREST() {
+			//alert(window.XMLHttpRequest);
+		    //var xhttp = new XMLHttpRequest();
+		    var xhttp = new ActiveXObject('Msxml2.XMLHTTP');
+		    xhttp.onreadystatechange = function() {
+		        if (this.readyState == 4 && this.status == 200) {
+		            document.getElementById("response").innerHTML = this.responseText;
+		        }
+		    };
+		    xhttp.open("GET", "http://localhost:8080/Failsafe/rest/failsafe/authenticate/1", true);
+		    xhttp.send();
+		    //alert("Error ->" + xhttp.status);
+		   	//document.getElementById("div").innerHTML = "<table><tr><td>Remove ID</td><td><input id=\"remove-id\" type=\"text\"/></td>";
+		}
+
+</script>
+<body>
+	<h1 id="page-title"></h1>
+	<input id="show-users" type="submit" name="Show-Users" value="Show Users" onclick="callREST()"/>
+	<div id='div'>
+</body>
+</html>
